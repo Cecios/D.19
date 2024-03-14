@@ -2,18 +2,19 @@ const express = require('express')
 const router = express.Router();
 const authorModel = require('../models/authors.js')
 
-router.delete('/Author',async (request, response) =>{
+router.delete('/Author/:id',async (request, response) =>{
+    const {id} = request.params
     try{
-        const author = await authorModel.find()
+        const author = await authorModel.findByIdAndDelete(id)
             response
                 .status(200)
-                .send(author)
+                .send(author.firstName)
     }catch(e){
         response
             .status(500)
             .send({
                 statusCode: 500,
-                message: 'Internal server Error'
+                message: 'Internal server Error'+e
             })
     }
 })
@@ -25,7 +26,12 @@ router.get('/Author/:id',async (request,response)=>{
                 .status(200)
                 .send(author)
     }catch(e){
-
+        response
+            .status(500)
+            .send({
+                statusCode: 500,
+                message: 'Internal server Error'
+            })
     }
 })
 
