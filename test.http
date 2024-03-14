@@ -1,13 +1,17 @@
-GET http://localhost:3030/getAuthor
+GET http://localhost:3030/Author/65f3237c49ae7041fd63ba67
 ####
 
-POST http://localhost:3030/createUser
+POST http://localhost:3030/Author
 Content-Type: application/json
 
 {
-    "firstName": "Andrea",
-    "surName": "Raneri",
-    "email":"andrea.raneri94@gmail.com",
-    "birthDay": "03/01/1994",
-    "avatar": ""
+    "firstName": "Pippo",
+    "surName": "Baudo 4",
+    "email":"pippo.baudo@gmail.com",
+    "birthDay": "2000-01-01",
+    "avatar": "https://biografieonline.it/img/bio/p/Pippo_Baudo.jpg"
 }
+
+####
+
+PATCH 

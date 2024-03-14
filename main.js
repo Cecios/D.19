@@ -15,21 +15,21 @@ app.use('/', authorsRoute)
 
 //2 DEFINIAMO GLI ENDPOINT
 
-app.get('/getUser',(request,response)=>{
-    response.status(200).send({
-        title:'Andrea',
-        isServerActive:true
-    })
-})
-app.post('/createUser',(request,response)=>{
+// app.get('/getUser',(request,response)=>{
+//     response.status(200).send({
+//         title:'Andrea',
+//         isServerActive:true
+//     })
+// })
+// app.post('/createUser',(request,response)=>{
 
-})
-app.patch('/updateUser',(request,response)=>{
+// })
+// app.patch('/updateUser',(request,response)=>{
     
-})
-app.delete('/deleteUser',(request,response)=>{
+// })
+// app.delete('/deleteUser',(request,response)=>{
     
-})
+// })
 //1 CONNESSIONE DATABASE
 mongoose.connect(process.env.MONGODB_URL);
 
