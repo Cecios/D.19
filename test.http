@@ -1,4 +1,13 @@
-GET http://localhost:3030/getUsers
+GET http://localhost:3030/getAuthor
 ####
 
-POST http://localhost:3030
+POST http://localhost:3030/createUser
+Content-Type: application/json
+
+{
+    "firstName": "Andrea",
+    "surName": "Raneri",
+    "email":"andrea.raneri94@gmail.com",
+    "birthDay": "03/01/1994",
+    "avatar": ""
+}

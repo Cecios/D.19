@@ -7,15 +7,15 @@ const PORT = 3030; //Creo la porta dove mettere in ascolto il server
 const app = express();
 
 //4 IMPORT ROUTES
-const usersRoute = require('./routes/users');
+const authorsRoute = require('./routes/authors');
 //3 MIDDLEWARE
 app.use(express.json()) // è un parse che si interpone tra la request e la response
 
-app.use('/',usersRoute)
+app.use('/', authorsRoute)
 
 //2 DEFINIAMO GLI ENDPOINT
 
-app.get('/authors',(request,response)=>{
+app.get('/getUser',(request,response)=>{
     response.status(200).send({
         title:'Andrea',
         isServerActive:true

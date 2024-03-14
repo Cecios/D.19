@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    _id:{
-        type: String,
-        required: true
-    },
+const authorSchema = new mongoose.Schema({
     firstName: {
         type: String,   //tipo
         required: true, //obbligatorio
@@ -24,7 +20,7 @@ const userSchema = new mongoose.Schema({
         required: false,
     },
     avatar:{
-        type: Image,
+        type: String,
         required: false,
     }
 }, //options
@@ -32,4 +28,4 @@ const userSchema = new mongoose.Schema({
     timestamps:true,
     strict:true
 })
-module.exports = mongoose.model('userModel',userSchema,'users')
+module.exports = mongoose.model('authorModel',authorSchema,'authors')
