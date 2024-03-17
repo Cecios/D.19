@@ -18,6 +18,7 @@ const authorSchema = new mongoose.Schema({
     birthDay: {
         type: Date,
         required: false,
+        default:Date.now()
     },
     avatar:{
         type: String,

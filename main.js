@@ -8,11 +8,12 @@ const app = express();
 
 //4 IMPORT ROUTES
 const authorsRoute = require('./routes/authors');
+const blogPostRoute = require('./routes/blogPosts')
 //3 MIDDLEWARE
 app.use(express.json()) // è un parse che si interpone tra la request e la response
 
-app.use('/', authorsRoute)
-
+app.use('/', authorsRoute);
+app.use('/', blogPostRoute)
 //2 DEFINIAMO GLI ENDPOINT
 
 // app.get('/getUser',(request,response)=>{

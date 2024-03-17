@@ -1,17 +1,69 @@
-GET http://localhost:3030/Author
+GET http://localhost:3030/Author/?page=1&pagSize=5
 ####
 
 POST http://localhost:3030/Author
 Content-Type: application/json
 
 {
-    "firstName": "Pippo",
-    "surName": "Baudo 4",
-    "email":"pippo.baudo@gmail.com",
-    "birthDay": "2000-01-01",
+    "firstName": "Yoshi",
+    "surName": "d",
+    "email":"yoshi.bauda@gmail.com",
+    "birthDay": "12-01-1994",
     "avatar": "https://biografieonline.it/img/bio/p/Pippo_Baudo.jpg"
 }
 
 ####
 
-DELETE http://localhost:3030/Author/65f33aa942e5001df345efe7
+DELETE http://localhost:3030/Author/65f36c1a42e5001df345efed
+
+####
+
+PATCH http://localhost:3030/Author/65f36c1a42e5001df345efed
+Content-Type: application/json
+
+{
+    "surName": "BAUDO"
+}
+
+####
+GET http://localhost:3030/Author/byName/pap
+
+####
+GET http://localhost:3030/blogPosts
+
+####
+
+POST http://localhost:3030/blogPosts
+Content-Type: application/json
+
+{
+    "category": "Feedback",
+    "title": "Ottimo",
+    "cover": "abc",
+    "readTime":{
+        "value":1,
+        "unit": "times"
+    },
+    "author":
+    {
+        "name":"Me",
+        "avatar":"abc",
+    },
+    "content":"Tutto molto bello"
+}
+
+####
+POST http://localhost:3030/blogPosts
+Content-Type: application/json
+
+{
+    "category": "Feedback",
+    "title": "Ottimo",
+    "cover": "abc",
+    "readTime":{
+        "value":1,
+        "unit": "times"
+    },
+    "author": "pippo",
+    "content":"Tutto molto bello"
+}
