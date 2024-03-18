@@ -38,32 +38,26 @@ Content-Type: application/json
 
 {
     "category": "Feedback",
-    "title": "Ottimo",
-    "cover": "abc",
+    "title": "Buono",
+    "cover": "",
     "readTime":{
         "value":1,
         "unit": "times"
     },
-    "author":
-    {
+    "author":{
         "name":"Me",
-        "avatar":"abc",
+        "avatar":""
     },
-    "content":"Tutto molto bello"
+    "content":"Tutto abbastanza bello"
 }
 
 ####
-POST http://localhost:3030/blogPosts
+DELETE http://localhost:3030/blogPosts/65f77eccfd14db9c524e7928
+
+####
+PATCH http://localhost:3030/blogPosts/65f7729a4a81f357735bdd4c
 Content-Type: application/json
 
-{
-    "category": "Feedback",
-    "title": "Ottimo",
-    "cover": "abc",
-    "readTime":{
-        "value":1,
-        "unit": "times"
-    },
-    "author": "pippo",
-    "content":"Tutto molto bello"
+{   
+    "cover":"nuovaCover"
 }
