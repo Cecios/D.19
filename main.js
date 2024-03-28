@@ -2,18 +2,26 @@ const express = require('express');   // è uguale a import express from 'expres
 const mongoose = require('mongoose');
 require('dotenv').config(); // richiedo la libreria dotenv
 
-
+const cors = require('cors');
 const PORT = 3030; //Creo la porta dove mettere in ascolto il server
 const app = express();
 
 //4 IMPORT ROUTES
 const authorsRoute = require('./routes/authors');
 const blogPostRoute = require('./routes/blogPosts')
+const usersRoute = require('./routes/users.js')
+const loginRoute = require('./routes/login.js')
+const logger = require('./middleware/logger.js')
 //3 MIDDLEWARE
+app.use(cors())
 app.use(express.json()) // è un parse che si interpone tra la request e la response
 
+app.use(logger)
 app.use('/', authorsRoute);
-app.use('/', blogPostRoute)
+app.use('/', blogPostRoute);
+app.use('/', usersRoute);
+app.use('/', loginRoute);
+
 //2 DEFINIAMO GLI ENDPOINT
 
 // app.get('/getUser',(request,response)=>{

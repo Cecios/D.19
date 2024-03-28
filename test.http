@@ -13,7 +13,6 @@ Content-Type: application/json
 }
 
 ####
-
 DELETE http://localhost:3030/Author/65f36c1a42e5001df345efed
 
 ####
@@ -60,4 +59,30 @@ Content-Type: application/json
 
 {   
     "cover":"nuovaCover"
+}
+
+
+####
+GET http://localhost:3030/users
+
+####
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+    "userName": "andrea",
+    "password":"ciao12",
+    "email":"andrea.raneri94@gmail.com",
+    "age":29,
+    "role":"admin"
+}
+####
+DELETE http://localhost:3030/users/660496d24ca8da9fa8156558
+####
+POST http://localhost:3030/login
+Content-Type: application/json
+
+{
+    "email":"andrea.raneri94@gmail.com",
+    "password":"ciao12"
 }
