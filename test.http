@@ -64,6 +64,7 @@ Content-Type: application/json
 
 ####
 GET http://localhost:3030/users
+authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuZHJlYSIsImVtYWlsIjoiYW5kcmVhLnJhbmVyaTk1QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTY2ODIyMSwiZXhwIjoxNzExNjY5MTIxfQ.jVYKnF4TtD0h_aC_ofv7ooiZ0gGlajjgMym7WxRkc04'
 
 ####
 POST http://localhost:3030/users
@@ -83,6 +84,6 @@ POST http://localhost:3030/login
 Content-Type: application/json
 
 {
-    "email":"andrea.raneri94@gmail.com",
+    "email":"andrea.raneri95@gmail.com",
     "password":"ciao12"
 }

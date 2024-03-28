@@ -39,7 +39,7 @@ router.post('/login', logger,  async (request, response)=>{
             expiresIn:'15m'
         }
         )
-        response.header('Authorization',token)
+        response.setHeader('authorization',token)
             .status(200)
             .send({
                 message:'Login successfully done',

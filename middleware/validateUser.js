@@ -30,7 +30,5 @@ const validateUser = (request, response, next) => {
     }else{
         next() //se non c'è nesun errore passiamo avanti
     }
-
 }
-
 module.exports = validateUser

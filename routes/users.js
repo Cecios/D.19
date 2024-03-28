@@ -2,10 +2,11 @@ const express = require('express')
 const userModel = require('../models/users.js');
 const router = express.Router();
 const bcrypt = require('bcrypt')
+const verified = require('../middleware/verifyToken.js')
 //MIDDLEWARE
 const validateUser = require('../middleware/validateUser.js')
 // GET
-router.get('/users',  async (request, response) => {
+router.get('/users',  verified, async (request, response) => {
     const {page=1,pagSize=5} = request.query
     const totalUser = await userModel.countDocuments()
     try{
