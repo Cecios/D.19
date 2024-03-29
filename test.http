@@ -64,7 +64,7 @@ Content-Type: application/json
 
 ####
 GET http://localhost:3030/users
-authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuZHJlYSIsImVtYWlsIjoiYW5kcmVhLnJhbmVyaTk1QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTY2ODIyMSwiZXhwIjoxNzExNjY5MTIxfQ.jVYKnF4TtD0h_aC_ofv7ooiZ0gGlajjgMym7WxRkc04'
+authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuZHJlYSIsImVtYWlsIjoiYW5kcmVhLnJhbmVyaTk1QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTcxMDQxNywiZXhwIjoxNzExNzExMzE3fQ.LEiXh8COIqainx2q-Vg1Um4JaSLZn5ZqmZL8_p4YpLU'
 
 ####
 POST http://localhost:3030/users
