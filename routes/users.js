@@ -13,7 +13,7 @@ router.get('/users',  verified, async (request, response) => {
         const getUsers = await userModel.find()
         .limit(pagSize)
         .skip((page-1)*pagSize)
-        response
+        return response
             .status(200)
             .send(
                 {
@@ -24,7 +24,7 @@ router.get('/users',  verified, async (request, response) => {
                 }
                 )
     }catch(e){
-        response
+        return response
             .status(500)
             .send({
                 statusCode:500,
@@ -33,7 +33,7 @@ router.get('/users',  verified, async (request, response) => {
     }
 })
 //POST
-router.post('/users', validateUser, async (request, response) => {
+router.post('/register-user', validateUser, async (request, response) => {
     const salt = await bcrypt.genSalt(10) // --> complessita dell'algoritmo di cifratura
     const hashedPassword = await bcrypt.hash(request.body.password,salt)
 

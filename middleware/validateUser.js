@@ -19,8 +19,8 @@ const validateUser = (request, response, next) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
         error.push('Invalid email')
     }
-    if (typeof age !== "number"){
-        error.push('age must be a number')
+    if (typeof age !== "number" || age < 0){ 
+        error.push('Age not valid')
     }
     if (typeof role !== "string"){
         error.push('Invalid Role')
