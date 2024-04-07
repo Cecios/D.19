@@ -87,3 +87,28 @@ Content-Type: application/json
     "email":"andrea.raneri95@gmail.com",
     "password":"ciao12"
 }
+
+####
+GET http://localhost:3030/books
+
+####
+POST http://localhost:3030/books
+Content-Type: application/json
+
+{
+    "title": "Il Cacciatore di aquiloni",
+    "category": "romanzo",
+    "author": "Khaled Hossein",
+    "price": 14,
+    "description": "Un libro indimenticabile, emozionante come pochi"
+}
+
+####
+POST http://localhost:3030/sendEmail
+Content-Type: application/json
+
+{
+    "recipient":"veronica.pasinato11@gmail.com",
+    "subject":"NADIA",
+    "text":"Ciao Veronicamelo"
+}

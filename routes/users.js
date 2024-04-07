@@ -17,7 +17,7 @@ router.get('/users',  verified, async (request, response) => {
             .status(200)
             .send(
                 {
-                    currentPage: +page,
+                    currentPage: + page,
                     totalUser,  
                     totalPage: Math.ceil(totalUser/pagSize),
                     getUsers
