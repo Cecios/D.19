@@ -157,6 +157,7 @@ router.delete('/Author/:id',async (request, response) =>{
 /// POST ///
 router.post('/Author', async (request,response)=>{
     const newAuthor = new authorModel({
+        author: request.body.author,
         firstName: request.body.firstName,
         surName: request.body.surName,
         email: request.body.email,

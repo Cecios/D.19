@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const booksModel = require('../models/books');
+const AuthorModel = require('../models/authors');
 const cloudinary = require('cloudinary').v2;
 const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const multer = require('multer');
@@ -8,15 +9,15 @@ const multer = require('multer');
 require('dotenv').config();
 // configurazione cloudinary
 cloudinary.config({
-    cloud_name: 'dnr7aderm',
-    api_key: '131381732122523',
-    api_secret: 'OuHpYKrQcfpCWD62HMz15t38cCY'
+    cloud_name: `${process.env.CLOUDINARY_CLOUD_NAME}`,
+    api_key: `${process.env.CLOUDINARY_API_KEY}`,
+    api_secret: `${process.env.CLOUDINARY_CLOUD_SECRET}`
 })
 
 const internalStorage = multer.diskStorage({
     //1 destinazione dei file *cb callback
     destination: (req,file,cb) =>{
-        cb(null,'uploads') //null, nome cartella
+        cb(null,'uploads') 
     },
     fileFilter: (req,file,cb) => {
         if (file.mimetype === 'image/png') {
@@ -37,7 +38,7 @@ const cloudStorage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params:{
         folder: 'AR01',
-        format: async (req, file ) => 'png', //Si può anche omettere
+        format: async (req, file ) => 'png', //
         public_id: (req, file) => file.name
     }
 })
@@ -61,7 +62,7 @@ router.post('/file/uploadFile', cloudUpload.single('cover'),async (request, resp
 const upload = multer({storage: internalStorage})// usa come storage lo Storage appena sopra configurato
 //ROTTA DEDICATA PER L'UPLOAD DEI FILE
                                         //Nella stringa ci va il name dell'input di tipo file che ci sarà nel frontend
-router.post('/file/uploadFile', upload.single('cover'), async (request, response) => {
+router.post('/file/internal/uploadFile', upload.single('cover'), async (request, response) => {
     
     const url = request.protocol +'://' + request.get('host') //url dinamico
 //                            https://pippo.com
@@ -87,6 +88,7 @@ router.get('/books', async (request, response) => {
     const totalBooks = await booksModel.countDocuments()
     try{
         const books = await booksModel.find()
+        //.populate('author','email')
         .limit(pagSize)
         .skip((page -1)*pagSize)
         response
@@ -109,16 +111,22 @@ router.get('/books', async (request, response) => {
     }
 });
 router.post('/books', async (request, response) => {
+
+    //const Author = await AuthorModel.findOne({_id:request.body.author})
+    
     const newBoook = new booksModel({
+        
         title: request.body.title,
         category: request.body.category,
-        author: request.body.author,
+        author: request.body.author,//Author._id,
         cover: request.body.cover,
         price: Number(request.body.price),
         description: request.body.description
     })
+    // oppure newBook = new booksModel(request.body)
     try{
-        const bookSave = await newBoook.save()
+        const bookSave = await newBoook.save();
+        //await AuthorModel.updateOne({_id: user._id},{$push: {postedBooks: bookSave}})
         response
         .status(201)
         .send({

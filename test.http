@@ -5,9 +5,10 @@ POST http://localhost:3030/Author
 Content-Type: application/json
 
 {
-    "firstName": "Yoshi",
-    "surName": "d",
-    "email":"yoshi.bauda@gmail.com",
+    "author": "SORPI",
+    "firstName": "Pietro",
+    "surName": "s",
+    "email":"pietro.sorpi@gmail.com",
     "birthDay": "12-01-1994",
     "avatar": "https://biografieonline.it/img/bio/p/Pippo_Baudo.jpg"
 }
@@ -98,7 +99,7 @@ Content-Type: application/json
 {
     "title": "Il Cacciatore di aquiloni",
     "category": "romanzo",
-    "author": "Khaled Hossein",
+    "author": "6619ab716858a24233f03194",
     "price": 14,
     "description": "Un libro indimenticabile, emozionante come pochi"
 }

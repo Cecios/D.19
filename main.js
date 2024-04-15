@@ -14,6 +14,7 @@ const usersRoute = require('./routes/users.js')
 const loginRoute = require('./routes/login.js')
 const booksRoute = require('./routes/books.js')
 const emailRoute = require('./routes/sendEmail.js')
+const githubRoute = require('./routes/gitHub.js')
 //3 MIDDLEWARE
 app.use(cors())
 app.use(express.json()) // è un parse che si interpone tra la request e la response
@@ -25,9 +26,11 @@ app.use(logger)
 app.use('/', authorsRoute);
 app.use('/', blogPostRoute);
 app.use('/', usersRoute);
+app.use('/', githubRoute)
 app.use('/', loginRoute);
 app.use('/', booksRoute);
-app.use('/',emailRoute)
+app.use('/', emailRoute)
+
 //2 DEFINIAMO GLI ENDPOINT
 
 

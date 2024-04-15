@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const bookSchema = new mongoose.Schema({
+
     title: {
         type: String,
         required: true,
@@ -12,8 +13,11 @@ const bookSchema = new mongoose.Schema({
         max: 20,
     },
     author:{
+        // type: mongoose.Schema.Types.ObjectId, // è un objectId
+        // ref: 'authorModel'//a che modello ci stiamo riferendo
         type: String,
         required: true,
+        max: 20,
     },
     cover: {
         type:String,
