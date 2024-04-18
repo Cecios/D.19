@@ -9,7 +9,7 @@ const app = express();
 
 //4 IMPORT ROUTES
 const authorsRoute = require('./routes/authors');
-const blogPostRoute = require('./routes/blogPosts')
+const blogPostRoute = require('./routes/blogPosts');
 const usersRoute = require('./routes/users.js')
 const loginRoute = require('./routes/login.js')
 const booksRoute = require('./routes/books.js')
